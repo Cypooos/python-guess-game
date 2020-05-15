@@ -20,10 +20,10 @@ class Game():
       self.player.win()
       return True
     else:
-      self.player.loose()
+      self.player.loose(self.numb)
       return False
 
 
 
-g = Game(InputUser())
+g = Game(ComputeUser())
 g.play()
