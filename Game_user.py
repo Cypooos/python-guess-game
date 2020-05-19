@@ -8,6 +8,9 @@ class InputUser():
   def __init__(self):
     self.turns = 0
 
+  def reset(self):
+    pass
+
   def result(self,isUnder):
     stri ="The result is "
     if isUnder:stri += "under !"
@@ -44,6 +47,11 @@ class ComputeUser():
     self.turns = 0
     self.ub = 100
     self.db = 0
+  
+  def reset(self):
+    self.turns = 0
+    self.ub = 101
+    self.db = 0
 
   def calcCenter(self):
     return int((self.ub-self.db)/2)+self.db
@@ -56,7 +64,7 @@ class ComputeUser():
 
   def play(self):
     self.turns +=1
-    print("I, robot boiii, play the "+str(self.calcCenter()))
+    #print("I, robot boiii, play the "+str(self.calcCenter()))
     return self.calcCenter()
 
   
@@ -65,5 +73,8 @@ class ComputeUser():
   
   
   def loose(self,ans):
-    print("I loos :(\nThe truth answer was "+str(ans))
+    print("I loost :(\nThe truth answer was "+str(ans))
     
+
+
+4.8138090

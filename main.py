@@ -5,11 +5,14 @@ class Game():
 
   def __init__(self,player):
     self.player = player
-    self.numb = random.randint(0,100)
+    self.numb = 0
 
 
   def play(self,maxTurn = 9999):
+    self.numb = random.randint(0,100)
+    self.player.reset()
     inp = -1
+    x=0
     for x in range(maxTurn):
       inp = self.player.play()
       if inp == self.numb: break
@@ -18,12 +21,19 @@ class Game():
       self.player.result(isUnder)
     if inp == self.numb:
       self.player.win()
-      return True
+      return True, x
     else:
       self.player.loose(self.numb)
-      return False
+      return False,x
 
 
+if __name__ == "__main__":
 
-g = Game(ComputeUser())
-g.play()
+  g = Game(ComputeUser())
+  total = 0
+  maxAll = 1000000
+  for x in range(maxAll):
+    s,count = g.play()
+    total += count
+
+  print(total/maxAll*1 000 000)
