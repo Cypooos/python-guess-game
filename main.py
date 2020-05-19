@@ -36,4 +36,4 @@ if __name__ == "__main__":
     s,count = g.play()
     total += count
 
-  print(total/maxAll*1 000 000)
+  print(total/maxAll*1000000)
